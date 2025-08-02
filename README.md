@@ -9,3 +9,29 @@
     - [Coding train video](https://www.youtube.com/watch?v=c9HbsUSWilw) - talks about capture groups and at 8:38 onwards, talks about greedy vs lazy quantifiers
 
 
+### **markdown\_blocks.py**
+>markdown\_to\_blocks(markdown: str) -> List\[str]  
+>- returns list of blocks (List\[str]) from markdown (splits  "\\n\\n")  
+
+>block\_to\_block\_type(block: str) -> BlockType
+>- returns BlockType of block based on starting/ending characters 
+
+### **class BlockType(Enum):**  
+&nbsp;   PARAGRAPH = "PARAGRAPH" -> `<p>`  
+&nbsp;   HEADING = "HEADING" -> `<h?>` (might need to use parent + 1)   
+&nbsp;   CODE = "CODE" -> `<code>`  
+&nbsp;   QUOTE = "QUOTE" -> `<blockquote>`  
+&nbsp;   UNORDERED\_LIST = "UNORDERED\_LIST" -> `<ul>`  
+&nbsp;   ORDERED\_LIST = "ORDERED\_LIST" -> `<ol>`  
+
+### **textnode.py**
+
+>text\_node\_to\_html\_node(text\_node: TextNode) -> LeafNode  
+>- returns LeafNode with tag corresponding to inline tag, value set as text where appropriate (eg: text for text/italic/bold/link, "" for image), properties set to respective 
+
+### **inline\_markdown.py**
+
+>text\_to\_textnodes(text: str) -> List\[TextNode]
+
+
+

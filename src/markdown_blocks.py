@@ -19,7 +19,9 @@ def block_to_block_type(block: str):
     if re.match(r"^#{1,6} ", block):
         return BlockType.HEADING
     elif re.fullmatch(r"^`{3}(?!`)[\s\S]*?(?<!`)`{3}$", block):
-        # negative lookbehind and negative lookahead for exactly 3 "`"
+        # negative lookbehind ^`{3}(?!`) at start 
+        # and negative lookahead (?<!`)`{3}$ at end for exactly 3 "`"
+        # [\s\S]*? non greedy 
         return BlockType.CODE
     elif check_lines_in_block(block, ">"):
         return BlockType.QUOTE
@@ -49,3 +51,7 @@ def check_ordered_list(block: str):
             return False
         i += 1
     return True
+
+
+def markdown_to_html_node(markdown):
+    pass
